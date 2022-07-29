@@ -5,6 +5,11 @@ local cmp = require 'cmp'
 -- local lua51 = require 'lua51'
 
 cmp.setup({
+    snippet = {
+         expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+          end,
+    },
     mapping = cmp.mapping.preset.insert({
         ['<C-Up>'] = cmp.mapping.scroll_docs(-4),
         ['<C-Down>'] = cmp.mapping.scroll_docs(4),
@@ -17,6 +22,9 @@ cmp.setup({
             {
                 name = 'nvim_lsp'
             },
+            {
+                name = 'vsnip'
+            }
         },
         {
             {
@@ -61,6 +69,5 @@ require('lspconfig')['dockerls'].setup { capabilities = capabilities }
 require('lspconfig')['gopls'].setup { capabilities = capabilities }
 require('lspconfig')['jsonls'].setup { capabilities = capabilities }
 require('lspconfig')['pyright'].setup { capabilities = capabilities, root_dir = lspconfig.util.root_pattern(unpack(python_root_files)) }
--- require('lspconfig')['pyright'].setup {}
 require('lspconfig')['lemminx'].setup { capabilities = capabilities }
 require('lspconfig')['yamlls'].setup { capabilities = capabilities}
