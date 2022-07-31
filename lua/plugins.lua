@@ -10,6 +10,12 @@ return require('packer').startup(function(use)
     -- use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
     use "daschw/leaf.nvim"
 
+    -- lualine
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
     -- autocomplete
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
