@@ -1,12 +1,14 @@
 vim.cmd [[packadd packer.nvim]]
- 
+
 return require('packer').startup(function(use)
     -- Packer needs itself
     use 'wbthomason/packer.nvim'
 
     -- colorschemas
-    use 'cocopon/iceberg.vim'
-    use 'romainl/Apprentice'
+    -- use 'cocopon/iceberg.vim'
+    -- use 'romainl/Apprentice'
+    -- use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
+    use "daschw/leaf.nvim"
 
     -- autocomplete
     use 'hrsh7th/cmp-nvim-lsp'

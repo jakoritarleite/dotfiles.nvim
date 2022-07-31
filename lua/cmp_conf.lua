@@ -1,8 +1,6 @@
 local lspconfig = require 'lspconfig'
 local cmp = require 'cmp'
 
--- local lua51 = require 'lua51'
--- local lua51 = require 'lua51'
 
 cmp.setup({
     snippet = {
