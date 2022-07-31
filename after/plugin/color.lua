@@ -1,7 +1,19 @@
--- vim.tokyonight_transparent_sidebar = true
--- vim.tokyonight_transparentt = true
--- vim.opt.background = "dark"
+require("leaf").setup({
+    undercurl = false,
+    commentStyle = false,
+    functionStyle = false,
+    keywordStyle = false,
+    statementStyle = false,
+    typeStyle = false,
+    variablebuiltinStyle = false,
+    transparent = true,
+    theme = "dark",
+    overrides = {
+        LineNr = { fg = "#444444" }
+    }
+})
 
-vim.cmd("highlight LineNr ctermfg=238")
--- vim.cmd("colorscheme iceberg")
--- vim.cmd("colorscheme Apprentice")
+vim.cmd("colorscheme leaf")
+
+-- Changed in leaf setup at overrides
+-- vim.cmd("highlight LineNr ctermfg=238")
