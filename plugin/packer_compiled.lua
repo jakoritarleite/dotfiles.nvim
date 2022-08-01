@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  Apprentice = {
-    loaded = true,
-    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/Apprentice",
-    url = "https://github.com/romainl/Apprentice"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -94,15 +89,20 @@ _G.packer_plugins = {
     path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["iceberg.vim"] = {
+  ["cmp-vsnip"] = {
     loaded = true,
-    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/iceberg.vim",
-    url = "https://github.com/cocopon/iceberg.vim"
+    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["lua-fuck-5.1"] = {
+  ["leaf.nvim"] = {
     loaded = true,
-    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/lua-fuck-5.1",
-    url = "https://github.com/sumneko/lua-fuck-5.1"
+    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/leaf.nvim",
+    url = "https://github.com/daschw/leaf.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -113,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -129,10 +134,20 @@ _G.packer_plugins = {
     path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/Users/koritar/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
