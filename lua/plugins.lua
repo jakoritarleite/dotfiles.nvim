@@ -38,5 +38,5 @@ return require('packer').startup(function(use)
     }
 
     -- utils
-    use 'sumneko/lua-fuck-5.1'
+    use 'karb94/neoscroll.nvim'
 end)
