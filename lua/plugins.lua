@@ -8,7 +8,8 @@ return require('packer').startup(function(use)
     -- use 'cocopon/iceberg.vim'
     -- use 'romainl/Apprentice'
     -- use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
-    use "daschw/leaf.nvim"
+    use 'daschw/leaf.nvim'
+    -- use 'kvrohit/rasmus.nvim'
 
     -- lualine
     use {
@@ -36,7 +37,14 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
     }
+    use 'nvim-treesitter/nvim-treesitter-context'
+
+    -- fuzzy find
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { 'nvim-lua/plenary.nvim' }
+    }
 
     -- utils
-    use 'karb94/neoscroll.nvim'
+    -- use 'karb94/neoscroll.nvim'
 end)

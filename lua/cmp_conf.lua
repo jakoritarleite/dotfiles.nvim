@@ -66,6 +66,8 @@ require('lspconfig')['cmake'].setup { capabilities = capabilities }
 require('lspconfig')['dockerls'].setup { capabilities = capabilities }
 require('lspconfig')['gopls'].setup { capabilities = capabilities }
 require('lspconfig')['jsonls'].setup { capabilities = capabilities }
-require('lspconfig')['pyright'].setup { capabilities = capabilities, root_dir = lspconfig.util.root_pattern(unpack(python_root_files)) }
+-- require('lspconfig')['pyright'].setup { capabilities = capabilities, root_dir = lspconfig.util.root_pattern(unpack(python_root_files)) }
+--require('lspconfig')['pylsp'].setup { capabilities = capabilities }
+require('lspconfig')['pyright'].setup { capabilities = capabilities, settings = { python = { analysis = { "~/wattio/odoo" } } } }
 require('lspconfig')['lemminx'].setup { capabilities = capabilities }
 require('lspconfig')['yamlls'].setup { capabilities = capabilities}
