@@ -48,14 +48,6 @@ cmp.setup.cmdline(':', {
     }})
 })
 
-local python_root_files = {
-  'pyproject.toml',
-  'setup.py',
-  'setup.cfg',
-  'requirements.txt',
-  'Pipfile',
-  'pyrightconfig.json',
-}
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- "sumneko_lua", "rust_analyzer", "ccls", "cmake", "dockerls", "gopls", "jsonls", "pyright", "lemminx", "yamlls".
@@ -64,10 +56,10 @@ require('lspconfig')['rust_analyzer'].setup { capabilities = capabilities }
 require('lspconfig')['ccls'].setup { capabilities = capabilities }
 require('lspconfig')['cmake'].setup { capabilities = capabilities }
 require('lspconfig')['dockerls'].setup { capabilities = capabilities }
+require('lspconfig')['eslint-lsp'].setup { capabilities = capabilities }
 require('lspconfig')['gopls'].setup { capabilities = capabilities }
 require('lspconfig')['jsonls'].setup { capabilities = capabilities }
--- require('lspconfig')['pyright'].setup { capabilities = capabilities, root_dir = lspconfig.util.root_pattern(unpack(python_root_files)) }
---require('lspconfig')['pylsp'].setup { capabilities = capabilities }
+require('lspconfig')['tsserver'].setup { capabilities = capabilities, filetypes = { "typescript", "typescriptreact", "typescript.tsx" } }
 require('lspconfig')['pyright'].setup { capabilities = capabilities, settings = { python = { analysis = { "~/wattio/odoo" } } } }
 require('lspconfig')['lemminx'].setup { capabilities = capabilities }
 require('lspconfig')['yamlls'].setup { capabilities = capabilities}
