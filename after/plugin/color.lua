@@ -13,6 +13,8 @@ require("leaf").setup({
     }
 })
 
+-- vim.cmd [[colorscheme rasmus]]
+
 vim.cmd("colorscheme leaf")
 
 -- Changed in leaf setup at overrides
