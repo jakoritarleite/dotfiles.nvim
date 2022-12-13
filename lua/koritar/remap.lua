@@ -1,4 +1,5 @@
-local nnoremap = require("keymap").nnoremap
+local nnoremap = require("koritar.keymap").nnoremap
+local vnoremap = require("koritar.keymap").vnoremap
 
 -- open nvim explorer with Space P V
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
@@ -25,3 +26,8 @@ nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("n", "nzz")
 nnoremap("N", "Nzz")
+
+-- copy clipboard :)
+nnoremap("<leader>Y", "\"+Y")
+nnoremap("<leader>y", "\"+y")
+vnoremap("<leader>y", "\"+y")
