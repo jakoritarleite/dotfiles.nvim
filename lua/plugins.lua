@@ -45,6 +45,9 @@ return require('packer').startup(function(use)
         requires = { 'nvim-lua/plenary.nvim' }
     }
 
+    -- git
+    use 'tpope/vim-fugitive'
+
     -- utils
     -- use 'karb94/neoscroll.nvim'
 end)
