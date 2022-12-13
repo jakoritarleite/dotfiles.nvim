@@ -1,7 +1,7 @@
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
 vim.opt.tabstop = 4
@@ -16,3 +16,5 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.g.mapleader = " "
+
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
