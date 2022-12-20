@@ -22,10 +22,10 @@ autocmd("TextYankPost", {
     end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd("BufWritePre", {
     group = KoritarGroup,
     pattern = "*",
-    command = "%s/\\s\\+$//e",
+    command = "lua vim.lsp.buf.format()",
 })
 
 vim.g.netrw_browse_split = 0
