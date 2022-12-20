@@ -5,11 +5,9 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- colorschemas
-    -- use 'cocopon/iceberg.vim'
-    -- use 'romainl/Apprentice'
     -- use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
+    -- 'kvrohit/rasmus.nvim'
     use 'daschw/leaf.nvim'
-    -- use 'kvrohit/rasmus.nvim'
 
     -- lualine
     use {
