@@ -1,6 +1,8 @@
 local nnoremap = require("koritar.keymap").nnoremap
 local vnoremap = require("koritar.keymap").vnoremap
 
+-- TODO: change plugin specific remap to the lazy.nvim way
+
 -- open nvim explorer with Space P V
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
@@ -13,10 +15,14 @@ nnoremap("<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 -- code actions
 nnoremap("<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
 
--- telescope
-nnoremap("<leader>ff", "<Cmd>lua require('telescope.builtin').find_files()<cr>")
-nnoremap("<leader>fg", "<Cmd>lua require('telescope.builtin').live_grep()<cr>")
-nnoremap("<leader>fb", "<Cmd>lua require('telescope.builtin').buffers()<cr>")
+-- telescope (see lua/plugins/telescope)
+-- nnoremap("<leader>ff", "<Cmd>lua require('telescope.builtin').find_files()<cr>")
+-- nnoremap("<leader>fg", "<Cmd>lua require('telescope.builtin').live_grep()<cr>")
+-- nnoremap("<leader>fb", "<Cmd>lua require('telescope.builtin').buffers()<cr>")
+
+-- fugitive
+nnoremap("<leader>gs", "<cmd>:Git<CR>")
+nnoremap("<leader>ga", "<cmd>Git fetch --all<CR>")
 
 -- lsp
 nnoremap("<leader>d", "<Cmd>lua vim.diagnostic.open_float()<CR>")
