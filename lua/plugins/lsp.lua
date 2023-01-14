@@ -1,19 +1,16 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        event = "BufReadPre",
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/nvim-cmp",
             "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-vsnip",
-            "hrsh7th/vim-vsnip"
         },
         opts = {
             diagnostics = {
+                virtual_text = true,
+                signs = false,
                 underline = true,
                 update_in_insert = false,
             },
@@ -37,11 +34,14 @@ return {
                 jsonls = {},
                 tsserver = {},
                 pyright = {},
-                lemmix = {},
+                lemminx = {},
                 yamlls = {}
-            }
+            },
+            setup = {},
         },
-        config = function(plugin, opts)
+        config = function(_, opts)
+            vim.diagnostic.config(opts.diagnostics)
+
             local servers = opts.servers
             local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 

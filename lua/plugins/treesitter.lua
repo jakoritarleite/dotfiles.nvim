@@ -15,7 +15,7 @@ return {
                 select = {
                     enable = true,
                     lookahead = true
-                }  
+                }
             },
             context_commentstring = { enable = true, enable_autocmd = false },
             ensure_installed = {
@@ -36,7 +36,7 @@ return {
                 "yaml"
             }
         },
-        config = function(plugin, opts)
+        config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
         end
     },
@@ -58,9 +58,5 @@ return {
                 }
             }
         },
-        config = function(plugin, opts)
-            require("")
-        end
     }
 }
-

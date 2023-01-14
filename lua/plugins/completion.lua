@@ -9,28 +9,28 @@ return {
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
         },
-        config = function(plugin, opts)
+        opts = function()
             local cmp = require("cmp")
 
             -- How make this work ?
-            -- cmp.setup.cmdline('/', {
-            --     mapping = cmp.mapping.preset.cmdline(),
-            --     sources = {{
-            --         name = 'buffer'
-            --     }}
-            -- })
+            cmp.setup.cmdline('/', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = { {
+                    name = 'buffer'
+                } }
+            })
 
-            -- cmp.setup.cmdline(':', {
-            --     mapping = cmp.mapping.preset.cmdline(),
-            --     sources = cmp.config.sources({{
-            --         name = 'path'
-            --     }}, {{
-            --             name = 'cmdline'
-            --         }})
-            -- })
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({ {
+                    name = 'path'
+                } }, { {
+                    name = 'cmdline'
+                } })
+            })
 
             return {
-                snippet = { 
+                snippet = {
                     expand = function(args)
                         vim.fn["vsnip#anonymous"](args.body)
                     end
@@ -42,20 +42,16 @@ return {
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 }),
-                sources = cmp.config.sources(
-                    {
-                        { name = "nvim_lsp" }
-                    },
-                    {
-                        { name = "vsnip" }
-                    },
-                    {
-                        { name = "buffer" }
-                    }
-                ),
-                view = {
-                    entries = "native"
-                }
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "vsnip" },
+                }, {
+                    { name = "buffer" },
+                    { name = "path" }
+                }),
+                -- view = {
+                --     entries = "native"
+                -- }
             }
         end
     }
