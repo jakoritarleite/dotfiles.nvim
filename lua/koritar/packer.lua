@@ -7,7 +7,8 @@ return require('packer').startup(function(use)
     -- colorschemas
     -- use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
     -- 'kvrohit/rasmus.nvim'
-    use 'daschw/leaf.nvim'
+    -- use 'daschw/leaf.nvim'
+    use 'sainnhe/gruvbox-material'
 
     -- lualine
     use {
@@ -48,4 +49,10 @@ return require('packer').startup(function(use)
 
     -- utils
     -- use 'karb94/neoscroll.nvim'
+
+    -- markdown preview
+    use 'ellisonleao/glow.nvim'
+
+    -- focus
+    use 'folke/zen-mode.nvim'
 end)

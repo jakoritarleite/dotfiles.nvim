@@ -99,10 +99,15 @@ _G.packer_plugins = {
     path = "/home/koritar/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["leaf.nvim"] = {
+  ["glow.nvim"] = {
     loaded = true,
-    path = "/home/koritar/.local/share/nvim/site/pack/packer/start/leaf.nvim",
-    url = "https://github.com/daschw/leaf.nvim"
+    path = "/home/koritar/.local/share/nvim/site/pack/packer/start/glow.nvim",
+    url = "https://github.com/ellisonleao/glow.nvim"
+  },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/home/koritar/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -163,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/koritar/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/koritar/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
