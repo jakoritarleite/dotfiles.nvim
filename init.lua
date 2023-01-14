@@ -1,9 +1,17 @@
 require("koritar")
---require("set")
---require("remap")
---
---require("mason_conf")
---require("lsp_conf")
---require("treesitter_conf")
---require("cmp_conf")
---require("fugitive")
+
+local lazy_path = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazy_path) then
+    vim.fn.system {
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--single-branch",
+        "https://github.com/folke/lazy.nvim.git",
+        lazy_path
+    }
+end
+
+vim.opt.runtimepath:prepend(lazy_path)
+
+require("koritar.lazy")
