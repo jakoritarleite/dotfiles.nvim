@@ -3,7 +3,6 @@ return {
         "neovim/nvim-lspconfig",
         event = "BufReadPre",
         dependencies = {
-            "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
         },
@@ -66,5 +65,19 @@ return {
                 end
             })
         end
-    }
+    },
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end
+    },
+    {
+        "j-hui/fidget.nvim",
+        event = "BufReadPre",
+        config = function()
+            require("fidget").setup({})
+        end
+
+    },
 }
