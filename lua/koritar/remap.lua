@@ -4,7 +4,7 @@ local vnoremap = require("koritar.keymap").vnoremap
 -- TODO: change plugin specific remap to the lazy.nvim way
 
 -- open nvim explorer with Space P V
-nnoremap("<leader>pv", "<cmd>Ex<CR>")
+-- nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
 -- go to definition
 nnoremap("<leader>dd", "<cmd>lua vim.lsp.buf.definition()<CR>")

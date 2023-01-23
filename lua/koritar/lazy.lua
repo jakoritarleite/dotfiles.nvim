@@ -11,7 +11,7 @@ require("lazy").setup("plugins", {
                 "gzip",
                 "matchit",
                 "matchparen",
-                -- "netrwPlugin",
+                "netrwPlugin", -- replaced by telescope file_browser
                 "tarPlugin",
                 "tohtml",
                 "tutor",

@@ -1,6 +1,8 @@
 return {
     "nvim-telescope/telescope.nvim",
-    dependencies = {},
+    dependencies = {
+        "nvim-telescope/telescope-file-browser.nvim"
+    },
     keys = {
         {
             "<leader>ff",
@@ -22,6 +24,13 @@ return {
                 require("telescope.builtin").buffers()
             end,
             desc = "Buffers"
+        },
+        {
+            "<leader>pv",
+            function()
+                require("telescope").extensions.file_browser.file_browser()
+            end,
+            desc = "File explorer"
         }
     },
     opts = {
@@ -30,9 +39,26 @@ return {
             layout_config = { prompt_position = "top" },
             sorting_strategy = "ascending",
             winblend = 0,
+        },
+        pickers = {
+            find_files = {
+                theme = "ivy"
+            },
+            live_grep = {
+                theme = "ivy",
+            },
+            buffers = {
+                theme = "ivy"
+            }
+        },
+        extensions = {
+            file_browser = {
+                theme = "ivy",
+            }
         }
     },
     config = function(_, opts)
         require("telescope").setup(opts)
+        require("telescope").load_extension("file_browser")
     end
 }
