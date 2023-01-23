@@ -1,6 +1,9 @@
 return {
     "nvim-lua/plenary.nvim",
-    "ellisonleao/glow.nvim",
+    {
+        "ellisonleao/glow.nvim",
+        cmd = "Glow"
+    },
     "folke/zen-mode.nvim",
     {
         "rcarriga/nvim-notify",
