@@ -6,13 +6,13 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
-            -- "hrsh7th/cmp-vsnip",
-            -- "hrsh7th/vim-vsnip",
             "dcampos/nvim-snippy",
             "dcampos/cmp-snippy",
+            "onsails/lspkind.nvim"
         },
         opts = function()
             local cmp = require("cmp")
+            local lspkind = require("lspkind")
 
             -- How make this work ?
             cmp.setup.cmdline('/', {
@@ -34,7 +34,6 @@ return {
             return {
                 snippet = {
                     expand = function(args)
-                        -- vim.fn["vsnip#anonymous"](args.body)
                         require('snippy').expand_snippet(args.body)
                     end
                 },
@@ -47,15 +46,22 @@ return {
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    -- { name = "vsnip" },
-                    { name = "snippy" }
-                }, {
                     { name = "buffer" },
-                    { name = "path" }
+                    { name = "path" },
+                    { name = "snippy" }
                 }),
-                -- view = {
-                --     entries = "native"
-                -- }
+                formatting = {
+                    format = lspkind.cmp_format({
+                        mode = "symbol_text",
+                        menu = ({
+                            buffer = "[Buffer]",
+                            nvim_lsp = "[LSP]",
+                            luasnip = "[LuaSnip]",
+                            nvim_lua = "[Lua]",
+                            latex_symbols = "[Latex]",
+                        })
+                    })
+                }
             }
         end
     }
