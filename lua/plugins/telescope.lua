@@ -3,6 +3,7 @@ return {
     dependencies = {
         "nvim-telescope/telescope-file-browser.nvim"
     },
+    cmd = "Telescope",
     keys = {
         {
             "<leader>ff",
@@ -46,6 +47,9 @@ return {
             },
             live_grep = {
                 theme = "ivy",
+            },
+            oldfiles = {
+                theme = "ivy",  
             },
             buffers = {
                 theme = "ivy"

@@ -1,4 +1,4 @@
-require("koritar")
+require("koritar.set")
 
 local lazy_path = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazy_path) then
@@ -15,3 +15,5 @@ end
 vim.opt.runtimepath:prepend(lazy_path)
 
 require("koritar.lazy")
+
+require("koritar")

@@ -21,8 +21,8 @@ nnoremap("<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
 -- nnoremap("<leader>fb", "<Cmd>lua require('telescope.builtin').buffers()<cr>")
 
 -- fugitive
-nnoremap("<leader>gs", "<cmd>:Git<CR>")
-nnoremap("<leader>ga", "<cmd>Git fetch --all<CR>")
+-- nnoremap("<leader>gs", "<cmd>:Git<CR>")
+-- nnoremap("<leader>ga", "<cmd>Git fetch --all<CR>")
 
 -- lsp
 nnoremap("<leader>d", "<Cmd>lua vim.diagnostic.open_float()<CR>")
@@ -37,3 +37,14 @@ nnoremap("N", "Nzz")
 nnoremap("<leader>Y", "\"+Y")
 nnoremap("<leader>y", "\"+y")
 vnoremap("<leader>y", "\"+y")
+
+-- lazygit
+nnoremap(
+    "<leader>gg",
+    function() require("lazy.util").float_term("lazygit", { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } }) end)
+nnoremap(
+    "<leader>gG",
+    function()
+        require("lazy.util").float_term({ "lazygit" })
+    end
+)

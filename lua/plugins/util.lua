@@ -4,7 +4,10 @@ return {
         "ellisonleao/glow.nvim",
         cmd = "Glow"
     },
-    "folke/zen-mode.nvim",
+    {
+        "folke/zen-mode.nvim",
+        cmd = "Zen"
+    }, 
     {
         "rcarriga/nvim-notify",
         keys = {
