@@ -1,13 +1,29 @@
 return {
     "stevearc/dressing.nvim",
-    init = function()
-        vim.ui.select = function(...)
-            require("lazy").load({ plugins = { "dressing.nvim" } })
-            return vim.ui.select(...)
-        end
-        vim.ui.input = function(...)
-            require("lazy").load({ plugins = { "dressing.nvim" } })
-            return vim.ui.input(...)
-        end
-    end
+    event = "VeryLazy",
+    opts = {
+        input = {
+            win_options = {
+                -- No opaque floating window
+                winblend = 0,
+            },
+            -- go through input history with standard vim commands
+            mappings = {
+                i = {
+                    ['<C-p>'] = 'HistoryPrev',
+                    ['<C-n>'] = 'HistoryNext',
+                },
+            },
+        },
+        select = {
+            -- Dressing uses telescope as default select. Whenever telescope is not
+            -- found, it falls back to a buildin floating window
+            builtin = {
+                win_options = {
+                    -- No opaque floating window
+                    winblend = 0,
+                },
+            },
+        },
+    }
 }
