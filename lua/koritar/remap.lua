@@ -15,6 +15,8 @@ nnoremap("<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
 -- code actions
 nnoremap("<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
 
+-- rename
+nnoremap("<leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>")
 -- telescope (see lua/plugins/telescope)
 -- nnoremap("<leader>ff", "<Cmd>lua require('telescope.builtin').find_files()<cr>")
 -- nnoremap("<leader>fg", "<Cmd>lua require('telescope.builtin').live_grep()<cr>")
