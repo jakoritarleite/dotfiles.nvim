@@ -46,9 +46,9 @@ return {
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    { name = "buffer" },
+                    { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
                     { name = "path" },
-                    { name = "snippy" }
+                    { name = "snippy" },
                 }),
                 formatting = {
                     format = lspkind.cmp_format({
