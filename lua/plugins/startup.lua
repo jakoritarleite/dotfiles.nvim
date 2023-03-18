@@ -75,7 +75,7 @@ return {
         version = false,
         opts = {
             -- Whether to read latest session if Neovim opened without file arguments
-            autoread = false,
+            autoread = true,
             -- Whether to write current session before quitting Neovim
             autowrite = true,
             -- Directory where global sessions are stored (use `''` to disable)
