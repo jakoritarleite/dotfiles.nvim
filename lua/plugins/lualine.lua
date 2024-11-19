@@ -1,110 +1,73 @@
-local colors = {
-    darkgray = "#16161d",
-    gray = "#70788a",
-    innerbg = "NONE",
-    outerbg = "NONE",
-    normal = "#141414",
-    insert = "#ffffff",
-    visual = "#ffffff",
-    replace = "#ffffff",
-    command = "#ffffff",
-}
-
-local theme = {
-    inactive = {
-        a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
-        b = { fg = colors.gray, bg = colors.outerbg },
-        c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    visual = {
-        a = { fg = colors.darkgray, bg = colors.visual, gui = "bold" },
-        b = { fg = colors.gray, bg = colors.outerbg },
-        c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    replace = {
-        a = { fg = colors.replace, bg = colors.outerbg, gui = "bold" },
-        b = { fg = colors.gray, bg = colors.outerbg },
-        c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    normal = {
-        a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
-        b = { fg = colors.gray, bg = colors.outerbg },
-        c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    insert = {
-        a = { fg = colors.insert, bg = colors.outerbg, gui = "bold" },
-        b = { fg = colors.gray, bg = colors.outerbg },
-        c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    command = {
-        a = { fg = colors.command, bg = colors.outerbg, gui = "bold" },
-        b = { fg = colors.gray, bg = colors.outerbg },
-        c = { fg = colors.gray, bg = colors.innerbg },
-    },
-}
-
 return {
     {
         "nvim-lualine/lualine.nvim",
-        event = "VeryLazy",
+        enabled = false,
+        lazy = false,
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = {
-            "kyazdani42/nvim-web-devicons"
+            "nvim-tree/nvim-web-devicons"
         },
-        opts = {
-            options = {
-                icons_enabled = true,
-                section_separators = { left = "", right = "" },
-                component_separators = { left = "|", right = "|" },
-                disabled_filetypes = {
-                    statusline = {},
-                    winbar = {},
+        config = function()
+            local navic = require("nvim-navic")
+
+            local winbar = {
+                lualine_c = {
+                    { "filename", path = 1, color = { fg = "#6e7681", bg = "NONE" }, padding = { right = -1 } },
+                    {
+                        function()
+                            local location = navic.get_location()
+
+                            if location ~= "" then
+                                return "> " .. location
+                            end
+
+                            return location
+                        end,
+                        cond = function()
+                            return navic.is_available()
+                        end,
+                        color = { bg = "NONE" }
+                    }
+                }
+            }
+
+            require("lualine").setup({
+                options = {
+                    theme = "auto",
+                    icons_enabled = false,
+                    section_separators = "",
+                    component_separators = "",
+                    refresh = {
+                        statusline = 1000,
+                        tabline = 1000,
+                    }
                 },
-                ignore_focus = {},
-                always_divide_middle = true,
-                globalstatus = false,
-                refresh = {
-                    statusline = 1000,
-                    tabline = 1000,
-                    winbar = 1000,
-                },
-                theme = theme,
-            },
-            -- sections = {
-            --     lualine_a = {'mode'},
-            --     lualine_b = {'branch'},
-            --     lualine_c = {'filename'},
-            --     lualine_x = {'filetype'},
-            --     lualine_y = {'progress'},
-            --     lualine_z = {'location'}
-            -- },
-            -- inactive_sections = {
-            --     lualine_a = {},
-            --     lualine_b = {'diff', 'diagnostics'},
-            --     lualine_c = {'encoding', 'fileformat'},
-            --     lualine_x = {},
-            --     lualine_y = {},
-            --     lualine_z = {}
-            -- },
-            sections = {
-                lualine_a = { "mode" },
-                lualine_b = { "branch", "diff", "diagnostics" },
-                lualine_c = { "filename" },
-                lualine_x = { "encoding", "fileformat", "filetype" },
-                lualine_y = { "progress" },
-                lualine_z = { "location" },
-            },
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = { "filename" },
-                lualine_x = { "location" },
-                lualine_y = {},
-                lualine_z = {},
-            },
-            tabline = {},
-            winbar = {},
-            inactive_winbar = {},
-            extensions = {},
-        }
+                -- sections = {
+                --     lualine_a = { "mode" },
+                --     lualine_b = { "branch" },
+                --     lualine_c = {
+                --         {
+                --             "filename",
+                --             path = 0,
+                --         },
+                --         {
+                --             "diagnostics",
+                --         }
+                --     },
+                --     lualine_x = {
+                --         {
+                --             "filetype",
+                --             padding = { left = 1, right = 1 },
+                --         }
+                --     },
+                --     lualine_y = {},
+                --     lualine_z = { "location" },
+                -- },
+                sections = {},
+                tabline = {},
+                winbar = winbar
+                -- extensions = { "lazy" },
+            })
+        end,
     }
 }

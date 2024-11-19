@@ -16,4 +16,13 @@ vim.opt.runtimepath:prepend(lazy_path)
 
 require("koritar.lazy")
 
+-- navic
+-- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
+-- set colorscheme right after lazy
+-- vim.cmd [[colorscheme gruvbox-material]]
+
 require("koritar")
+
+-- vim.cmd [[autocmd BufRead *.rs :setlocal tags=./tags;/]]
+-- vim.cmd [[autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --omit-deps --quiet --start-dir=" . expand('%:p:h') . "--output=tags &" | redraw!]]

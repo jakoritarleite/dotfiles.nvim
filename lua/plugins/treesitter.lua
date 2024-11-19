@@ -24,6 +24,7 @@ return {
                 "cpp",
                 "fish",
                 "go",
+                "glsl",
                 "json",
                 "javascript",
                 "json5",

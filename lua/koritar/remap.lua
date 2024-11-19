@@ -3,6 +3,9 @@ local vnoremap = require("koritar.keymap").vnoremap
 
 -- TODO: change plugin specific remap to the lazy.nvim way
 
+nnoremap("a", "<Insert>")
+
+
 -- open nvim explorer with Space P V
 -- nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
@@ -43,10 +46,21 @@ vnoremap("<leader>y", "\"+y")
 -- lazygit
 nnoremap(
     "<leader>gg",
-    function() require("lazy.util").float_term("lazygit", { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } }) end)
+    function()
+        require("lazy.util").float_term("lazygit",
+            { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
+    end)
 nnoremap(
     "<leader>gG",
     function()
         require("lazy.util").float_term({ "lazygit" })
     end
 )
+
+-- lazydocker
+nnoremap(
+    "<leader>ld",
+    function()
+        require("lazy.util").float_term("lazydocker",
+            { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
+    end)

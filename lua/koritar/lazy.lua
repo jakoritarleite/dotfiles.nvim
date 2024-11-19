@@ -2,7 +2,7 @@ require("lazy").setup("plugins", {
     defaults = { lazy = true },
     install = {
         missing = true,
-        -- colorscheme = { "gruvbox-material" }
+        -- colorscheme = { "moonbow" }
     },
     performance = {
         cache = { enabled = true },
