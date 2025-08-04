@@ -1,24 +1,18 @@
 return {
     "nvim-telescope/telescope.nvim",
+    enabled = false,
     dependencies = {
         "nvim-telescope/telescope-file-browser.nvim"
     },
     cmd = "Telescope",
     keys = {
         -- {
-        --     "<leader>ff",
+        --     "<leader>fg",
         --     function()
-        --         require("telescope.builtin").find_files()
+        --         require("telescope.builtin").live_grep()
         --     end,
-        --     desc = "Find files"
+        --     desc = "Find in files"
         -- },
-        {
-            "<leader>fg",
-            function()
-                require("telescope.builtin").live_grep()
-            end,
-            desc = "Find in files"
-        },
         {
             "<leader>fb",
             function()
@@ -47,28 +41,28 @@ return {
             end,
             desc = "Treesitter Symbols"
         },
-        {
-            "<leader>fs",
-            function()
-                require("telescope.builtin").lsp_document_symbols({
-                    show_line = true,
-                    symbols = {
-                        "Class",
-                        "Struct",
-                        "Enum",
-                        "Constant",
-                        "Method",
-                        "Property",
-                        "Field",
-                        "Interface",
-                        "Function",
-                        "EnumMember",
-                        "TypeParameter"
-                    }
-                })
-            end,
-            desc = "LSP Symbols"
-        },
+        -- {
+        --     "<leader>fs",
+        --     function()
+        --         require("telescope.builtin").lsp_document_symbols({
+        --             show_line = true,
+        --             symbols = {
+        --                 "Class",
+        --                 "Struct",
+        --                 "Enum",
+        --                 "Constant",
+        --                 "Method",
+        --                 "Property",
+        --                 "Field",
+        --                 "Interface",
+        --                 "Function",
+        --                 "EnumMember",
+        --                 "TypeParameter"
+        --             }
+        --         })
+        --     end,
+        --     desc = "LSP Symbols"
+        -- },
         {
             "<leader>fi",
             function()
@@ -76,13 +70,13 @@ return {
             end,
             desc = "LSP Implementations"
         },
-        {
-            "<leader>fd",
-            function()
-                require("telescope.builtin").diagnostics()
-            end,
-            desc = "LSP Diagnostics"
-        },
+        -- {
+        --     "<leader>fd",
+        --     function()
+        --         require("telescope.builtin").diagnostics()
+        --     end,
+        --     desc = "LSP Diagnostics"
+        -- },
         {
             "<leader>fr",
             function()

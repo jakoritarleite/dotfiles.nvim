@@ -1,6 +1,7 @@
 return {
     "dmtrKovalenko/fff.nvim",
-    build = "cargo +nightly build --release",
+    -- only build manually
+    -- build = "cargo +nightly build --release",
     opts = {
         width = 0.9,
         height = 0.9,

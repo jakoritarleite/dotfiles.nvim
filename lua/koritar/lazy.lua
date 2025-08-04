@@ -4,6 +4,10 @@ require("lazy").setup("plugins", {
         missing = true,
         -- colorscheme = { "moonbow" }
     },
+    change_detection = {
+        enabled = false,
+        notify = false,
+    },
     performance = {
         cache = { enabled = true },
         rtp = {

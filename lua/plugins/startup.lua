@@ -1,9 +1,5 @@
 return {
     {
-        "goolord/alpha-nvim",
-        disable = true,
-    },
-    {
         "echasnovski/mini.starter",
         dependencies = {
             "mini.sessions"
@@ -28,13 +24,26 @@ return {
                 header = logo,
                 items = {
                     starter.sections.sessions(20, true),
-                    new_section("Find file",    "Telescope find_files", "Telescope"),
-                    new_section("Recent files", "Telescope oldfiles",   "Telescope"),
-                    new_section("Grep text",    "Telescope live_grep",  "Telescope"),
-                    new_section("init.lua",     "e $MYVIMRC",           "Config"),
-                    new_section("Lazy",         "Lazy",                 "Config"),
-                    new_section("New file",     "ene | startinsert",    "Built-in"),
-                    new_section("Quit",         "qa",                   "Built-in"),
+                    new_section(
+                        "Find file",
+                        function()
+                            require("fff").find_files()
+                        end,
+                        "Finder"
+                    ),
+                    new_section(
+                        "Grep file",
+                        function()
+                            require("fzf-lua").live_grep()
+                        end,
+                        "Finder"
+                    ),
+
+                    new_section("init.lua", "e $MYVIMRC", "Config"),
+                    new_section("Lazy", "Lazy", "Config"),
+
+                    new_section("New file", "ene | startinsert", "Built-in"),
+                    new_section("Quit", "qa", "Built-in"),
                 },
                 content_hooks = {
                     starter.gen_hook.adding_bullet("░ ", false),
@@ -64,7 +73,8 @@ return {
                     local stats = require("lazy").stats()
                     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
                     local pad_footer = string.rep(" ", 8)
-                    starter.config.footer = pad_footer .. "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+                    starter.config.footer = pad_footer ..
+                        "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
                     pcall(starter.refresh)
                 end,
             })
@@ -79,9 +89,9 @@ return {
             -- Whether to write current session before quitting Neovim
             autowrite = true,
             -- Directory where global sessions are stored (use `''` to disable)
-            directory =  '~/.vim/sessions', --<"session" subdir of user data directory from |stdpath()|>,
+            directory = '~/.vim/sessions', --<"session" subdir of user data directory from |stdpath()|>,
             -- File for local session (use `''` to disable)
-            file = '' -- 'Session.vim',
+            file = ''                      -- 'Session.vim',
         },
         config = function(opts, _)
             require("mini.sessions").setup(opts)
