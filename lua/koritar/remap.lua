@@ -40,19 +40,19 @@ nnoremap("<leader>y", "\"+y")
 vnoremap("<leader>y", "\"+y")
 
 -- lazygit
-nnoremap(
-    "<leader>gg",
-    function()
-        require("lazy.util").float_term("gitui",
-            { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
-        -- { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
-    end)
-nnoremap(
-    "<leader>gG",
-    function()
-        require("lazy.util").float_term({ "lazygit" })
-    end
-)
+-- nnoremap(
+--     "<leader>gg",
+--     function()
+--         require("lazy.util").float_term("gitui",
+--             { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
+--         -- { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
+--     end)
+-- nnoremap(
+--     "<leader>gG",
+--     function()
+--         require("lazy.util").float_term({ "lazygit" })
+--     end
+-- )
 
 -- lazydocker
 nnoremap(
