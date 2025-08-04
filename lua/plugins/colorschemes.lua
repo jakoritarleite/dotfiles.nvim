@@ -1,4 +1,18 @@
 return {
+    {
+        "chriskempson/base16-vim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            -- vim.o.background = 'light'
+            vim.opt.termguicolors = true
+            vim.cmd.colorscheme "base16-grayscale-dark"
+
+            vim.api.nvim_set_hl(0, "BlinkCmpSel", { bg = "#44475A", fg = "#f8f8f2", bold = true })
+            vim.api.nvim_set_hl(0, "CmpItemSel", { bg = "#44475A", fg = "#f8f8f2", bold = true })
+            vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#44475A", fg = "#f8f8f2", bold = true })
+        end
+    },
     --{
     --    "https://gitlab.com/HiPhish/resolarized.nvim",
     --    lazy = false,
@@ -34,26 +48,17 @@ return {
     --        vim.cmd.colorscheme 'solarized'
     --    end,
     --},
-    {
-        "chriskempson/base16-vim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- vim.o.background = 'light'
-            vim.opt.termguicolors = true
-            vim.cmd.colorscheme 'base16-grayscale-dark'
-        end
-    },
-    {
-        "savq/melange-nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- vim.o.background = 'light'
-            vim.opt.termguicolors = true
-            -- vim.cmd.colorscheme 'melange'
-        end
-    },
+
+    -- {
+    --     "savq/melange-nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         -- vim.o.background = 'light'
+    --         vim.opt.termguicolors = true
+    --         -- vim.cmd.colorscheme 'melange'
+    --     end
+    -- },
     --{
     --    -- https://github.com/santos-gabriel-dario/darcula-solid.nvim/tree/main
     --    "doums/darcula",

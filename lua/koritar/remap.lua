@@ -11,11 +11,7 @@ nnoremap("a", "<Insert>")
 
 -- go to definition
 nnoremap("<leader>dd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-
--- show hover
 nnoremap("<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>")
-
--- code actions
 nnoremap("<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
 
 -- rename
@@ -47,8 +43,9 @@ vnoremap("<leader>y", "\"+y")
 nnoremap(
     "<leader>gg",
     function()
-        require("lazy.util").float_term("lazygit",
+        require("lazy.util").float_term("gitui",
             { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
+        -- { cwd = require("koritar.util").get_root(), size = { width = 0.9, height = 0.9 } })
     end)
 nnoremap(
     "<leader>gG",

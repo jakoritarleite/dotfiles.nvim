@@ -5,13 +5,13 @@ return {
     },
     cmd = "Telescope",
     keys = {
-        {
-            "<leader>ff",
-            function()
-                require("telescope.builtin").find_files()
-            end,
-            desc = "Find files"
-        },
+        -- {
+        --     "<leader>ff",
+        --     function()
+        --         require("telescope.builtin").find_files()
+        --     end,
+        --     desc = "Find files"
+        -- },
         {
             "<leader>fg",
             function()
