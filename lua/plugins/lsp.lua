@@ -43,7 +43,8 @@ return {
                         organizeImports = true,
                         fixAll = true,
                     }
-                }
+                },
+                biome = {},
             },
         },
         config = function(_, opts)
