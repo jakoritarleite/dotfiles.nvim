@@ -1,0 +1,11 @@
+{
+	"workspace": {
+		"library": [
+			"~/.local/share/bob/v0.11.3/share/nvim/runtime/lua",
+			"~/.local/share/nvim"
+		]
+	},
+	"diagnostics": {
+		"globals": ["vim"]
+	}
+}

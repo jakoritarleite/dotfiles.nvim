@@ -2,6 +2,9 @@ return {
     "dmtrKovalenko/fff.nvim",
     -- only build manually
     -- build = "cargo +nightly build --release",
+    dependencies = {
+        "folke/snacks.nvim"
+    },
     opts = {
         width = 0.9,
         height = 0.9,

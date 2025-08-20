@@ -15,7 +15,15 @@ return {
             },
             servers = {
                 lua_ls = {
-                    settings = { Lua = { completion = { callSnippet = "Replace" } } }
+                    settings = {
+                        Lua = {
+                            completion = { callSnippet = "Replace" },
+                            diagnostics = { globals = { "vim" } },
+                            workspace = {
+                                library = vim.api.nvim_get_runtime_file("", true)
+                            }
+                        }
+                    }
                 },
                 rust_analyzer = {
                     settings = {
@@ -37,12 +45,33 @@ return {
                         }
                     }
                 },
-                pyright = {},
+                pyright = {
+                    openFilesOnly = false,
+                    analysis = {
+                        autoImportCompletions = true,
+                        diagnosticsMode = "workspace",
+                        typeCheckingMode = "strict",
+                    },
+                },
                 ruff = {
                     init_options = {
-                        organizeImports = true,
-                        fixAll = true,
+                        settings = {
+                            organizeImports = true,
+                            fixAll = true,
+                            showSyntaxErrors = true,
+                            lint = {
+                                enable = true,
+                            },
+                            format = {
+                                ["quote-style"] = "double"
+                            },
+                        }
                     }
+                },
+                ty = {
+                    init_options = {
+                        settings = {},
+                    },
                 },
                 biome = {},
             },
