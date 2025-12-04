@@ -41,19 +41,25 @@ autocmd("BufWritePre", {
     pattern = "*.py",
     callback = function()
         swallow_output(function()
-            local ruff = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf(), name = "ruff_lsp" })[1]
-            ruff.request_sync("workspace/executeCommand", {
-                command = 'ruff.applyAutofix',
-                arguments = {
-                    { uri = vim.uri_from_bufnr(0) },
-                },
-            }, 2000)
-            ruff.request_sync("workspace/executeCommand", {
-                command = 'ruff.applyOrganizeImports',
-                arguments = {
-                    { uri = vim.uri_from_bufnr(0) },
-                },
-            }, 2000)
+            if vim.lsp.get_clients then
+                local ruff = vim.lsp.get_clients({
+                    bufnr = vim.api.nvim_get_current_buf(),
+                    name = "rufff"
+                })[1]
+
+                ruff.request_sync("workspace/executeCommand", {
+                    command = 'ruff.applyAutofix',
+                    arguments = {
+                        { uri = vim.uri_from_bufnr(0) },
+                    },
+                }, 2000)
+                ruff.request_sync("workspace/executeCommand", {
+                    command = 'ruff.applyOrganizeImports',
+                    arguments = {
+                        { uri = vim.uri_from_bufnr(0) },
+                    },
+                }, 2000)
+            end
         end)
 
         vim.lsp.buf.format()

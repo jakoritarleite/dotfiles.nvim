@@ -68,12 +68,14 @@ return {
                         }
                     }
                 },
-                ty = {
-                    init_options = {
-                        settings = {},
-                    },
-                },
+                -- Disable ty until its not stable.
+                -- ty = {
+                --     init_options = {
+                --         settings = {},
+                --     },
+                -- },
                 biome = {},
+                ts_ls = {},
             },
         },
         config = function(_, opts)
